@@ -19,6 +19,7 @@ public class CharacterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Body.velocity = new Vector2(x * Speed, y * Speed);
+        Body.velocity.Normalize();
         if (Body.velocity.x > 0)
             spriteRenderer.flipX = true;
         else if (Body.velocity.x < 0)
