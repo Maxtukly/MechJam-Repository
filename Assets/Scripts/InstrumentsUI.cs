@@ -5,12 +5,16 @@ public class InstrumentsUI : MonoBehaviour
 {
     bool visible;
     public Animator animator;
+    public GameObject Player;
+    PlayerManager pmanager;
+
 
     // Update is called once per frame
 
     private void Start()
     {
         visible = false;
+        pmanager = Player.GetComponent<PlayerManager>();
     }
     void Update()
     {
@@ -34,5 +38,11 @@ public class InstrumentsUI : MonoBehaviour
         {
             animator.SetBool("Visible", false);
         }
+    }
+
+    public void SetInstrument(string instrument)
+    {
+       pmanager.CurrentInstrument = instrument;
+       Debug.Log(pmanager.CurrentInstrument);
     }
 }
