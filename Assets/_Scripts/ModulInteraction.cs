@@ -8,7 +8,8 @@ public class ModulInteraction : MonoBehaviour
     public bool Enabled;
     public Text Modultxt;
     private Renderer ren;
-    public GameObject Panel; 
+    public GameObject Panel;
+    public LayerMask player;
 
     void Start()
     {
@@ -18,6 +19,12 @@ public class ModulInteraction : MonoBehaviour
 
     void Update()
     {
+        if(Physics2D.OverlapCircle(this.transform.position, 2, player))
+        {
+            Enabled = true;
+            Modultxt.text = "Press the \"E\" Button for repair";
+        }
+
         if (Enabled && Input.GetKeyDown(KeyCode.E))
         {
             Panel.active = !Panel.active;
