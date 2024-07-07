@@ -261,6 +261,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentModule: {fileID: 0}
+  Player: {fileID: 910477323}
+  Modules:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &102436944
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,9 +348,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2053791902}
-        m_TargetAssemblyTypeName: ModulInteraction, Assembly-CSharp
-        m_MethodName: Interaction
+      - m_Target: {fileID: 63319270}
+        m_TargetAssemblyTypeName: ModuleManager, Assembly-CSharp
+        m_MethodName: InteractWithModule
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7326,7 +7330,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910477321}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -7839,7 +7843,7 @@ GameObject:
   - component: {fileID: 1062408777}
   - component: {fileID: 1062408776}
   - component: {fileID: 1062408775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Engine (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14055,7 +14059,7 @@ GameObject:
   - component: {fileID: 1650858096}
   - component: {fileID: 1650858095}
   - component: {fileID: 1650858098}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pump
   m_TagString: Entry
   m_Icon: {fileID: 0}
@@ -17361,7 +17365,7 @@ ParticleSystem:
       m_Bits: 4294967295
     influenceList: []
   ClampVelocityModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -19716,7 +19720,7 @@ GameObject:
   - component: {fileID: 2053791903}
   - component: {fileID: 2053791902}
   - component: {fileID: 2053791905}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}

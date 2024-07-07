@@ -61,7 +61,11 @@ public class ModulInteraction : MonoBehaviour
     public void Interaction()
     {
         Debug.Log("Module active");
-        if (par != null) par.Stop();
+        if (par != null)
+        {
+            par.Stop();
+            Debug.Log("Particals stoped");
+        }
         ren.material.SetColor("_Color", Color.blue);
         Invoke("EnergyCount", 3.0f);
     }
