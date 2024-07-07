@@ -8,6 +8,7 @@ public class ModulInteraction : MonoBehaviour
     public bool Enabled;
     public Text Modultxt;
     private Renderer ren;
+    public GameObject Panel; 
 
     void Start()
     {
@@ -19,8 +20,7 @@ public class ModulInteraction : MonoBehaviour
     {
         if (Enabled && Input.GetKeyDown(KeyCode.E))
         {
-            ren.material.SetColor("_Color", Color.blue);
-            Invoke("EnergyCount", 3.0f);
+            Panel.active = !Panel.active;
         }
     }
 
@@ -37,5 +37,11 @@ public class ModulInteraction : MonoBehaviour
     {
         Enabled = false;
         Modultxt.text = "";
+    }
+
+    public void Interaction()
+    {
+        ren.material.SetColor("_Color", Color.blue);
+        Invoke("EnergyCount", 3.0f);
     }
 }
