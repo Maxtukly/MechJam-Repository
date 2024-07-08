@@ -15,9 +15,9 @@ public class ModuleManager : MonoBehaviour
         {
             currentModule = null;
         }
-        else
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            
+            Debug.Log("Current module" + currentModule.name);
         }
     }
 
@@ -28,5 +28,11 @@ public class ModuleManager : MonoBehaviour
         {
             module.Interaction();
         }
+    }
+
+    public bool CheckValues()
+    {
+        ModulInteraction module = currentModule.GetComponent<ModulInteraction>();
+        return module.Working;
     }
 }

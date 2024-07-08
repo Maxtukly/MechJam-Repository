@@ -14,17 +14,19 @@ public class ModulInteraction : MonoBehaviour
     public GameObject Particals;
     ModuleManager manager;
     public LayerMask player;
+    public bool Working;
 
     void Start()
     {
         Enabled = false;
         ren = GetComponent<Renderer>();
         par = Particals.GetComponent<ParticleSystem>();
+        Working = false;
     }
 
     void Update()
     {
-        if(Physics2D.OverlapCircle(this.transform.position, 2, player))
+        if(Physics2D.OverlapCircle(this.transform.position, 1, player))
         {
             Enabled = true;
             Modultxt.text = "Press the \"R\" Button for repair";
@@ -34,7 +36,6 @@ public class ModulInteraction : MonoBehaviour
         else
         {
             Enabled = false;
-            Modultxt.text = "";
         }
 
         if (Enabled && Input.GetKeyDown(KeyCode.R))
@@ -66,6 +67,7 @@ public class ModulInteraction : MonoBehaviour
             par.Stop();
             Debug.Log("Particals stoped");
         }
+        Working = true;
         ren.material.SetColor("_Color", Color.blue);
         Invoke("EnergyCount", 3.0f);
     }
