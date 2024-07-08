@@ -26,7 +26,7 @@ public class ModulInteraction : MonoBehaviour
 
     void Update()
     {
-        if(Physics2D.OverlapCircle(this.transform.position, 1, player))
+        if(Physics2D.OverlapCircle(this.transform.position, 2, player))
         {
             Enabled = true;
             Modultxt.text = "Press the \"R\" Button for repair";
@@ -68,7 +68,6 @@ public class ModulInteraction : MonoBehaviour
             Debug.Log("Particals stoped");
         }
         Working = true;
-        ren.material.SetColor("_Color", Color.blue);
         Invoke("EnergyCount", 3.0f);
     }
 }

@@ -11,7 +11,7 @@ public class ModuleManager : MonoBehaviour
 
     private void Update()
     {
-        if(!Physics2D.OverlapCircle(Player.position, 1, Modules))
+        if(!Physics2D.OverlapCircle(Player.position, 2, Modules))
         {
             currentModule = null;
         }
