@@ -35,4 +35,11 @@ public class ModuleManager : MonoBehaviour
         ModulInteraction module = currentModule.GetComponent<ModulInteraction>();
         return module.Working;
     }
+
+    public GameObject CurrentModule()
+    {
+        return currentModule;
+    }
+
+
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class ModulInteraction : MonoBehaviour
 {
@@ -42,6 +43,11 @@ public class ModulInteraction : MonoBehaviour
         {
             Panel.active = !Panel.active;
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Debug.Log(Working.ToString());
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -67,7 +73,6 @@ public class ModulInteraction : MonoBehaviour
             par.Stop();
             Debug.Log("Particals stoped");
         }
-        Working = true;
         Invoke("EnergyCount", 3.0f);
     }
 }
