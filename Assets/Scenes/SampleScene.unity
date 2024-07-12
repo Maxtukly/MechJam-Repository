@@ -5767,7 +5767,6 @@ RectTransform:
   m_Children:
   - {fileID: 1554793297}
   - {fileID: 2020781779}
-  - {fileID: 1349193634}
   - {fileID: 1339972590}
   - {fileID: 484709521}
   - {fileID: 1236296980}
@@ -5776,8 +5775,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -47.5}
+  m_SizeDelta: {x: 0, y: -115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &303057249
 MonoBehaviour:
@@ -5830,7 +5829,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moduleManager: {fileID: 63319268}
-  panel: {fileID: 2020781778}
+  statusIndicator: {fileID: 2020781778}
+  coolerIndicator: {fileID: 1349193633}
+  oilIndicator: {fileID: 1014565990}
 --- !u!1 &306120961
 GameObject:
   m_ObjectHideFlags: 0
@@ -7020,12 +7021,13 @@ RectTransform:
   m_Children:
   - {fileID: 1657123473}
   - {fileID: 1338213701}
+  - {fileID: 1014565991}
   m_Father: {fileID: 303057248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -50, y: -500}
-  m_SizeDelta: {x: -1664, y: -671}
+  m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &688734198
 MonoBehaviour:
@@ -7040,6 +7042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moduleManager: {fileID: 63319268}
+  indicator: {fileID: 1014565990}
   liquid: Oil
 --- !u!114 &688734199
 MonoBehaviour:
@@ -8847,6 +8850,97 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1014565990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1014565991}
+  - component: {fileID: 1014565994}
+  - component: {fileID: 1014565993}
+  - component: {fileID: 1014565992}
+  m_Layer: 5
+  m_Name: Oil indicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1014565991
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014565990}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 688734197}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -50, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &1014565992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014565990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a575a35c23cbfe45bb6c7335b5381a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.9529412, g: 0, b: 0, a: 1}
+  - {r: 0.031189863, g: 0.9529412, b: 0, a: 1}
+--- !u!114 &1014565993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014565990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 92b4962f06707f544b6c2ec90bd2fd1b, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1014565994
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014565990}
+  m_CullTransparentMesh: 1
 --- !u!1 &1062408774
 GameObject:
   m_ObjectHideFlags: 0
@@ -8880,9 +8974,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enabled: 0
+  Steady: 0
   Modultxt: {fileID: 451844600}
   Panel: {fileID: 303057247}
   moduleManager: {fileID: 63319268}
+  functionScript: {fileID: 1062408780}
   Particals: {fileID: 192549871}
   player:
     serializedVersion: 2
@@ -9285,11 +9381,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1224693611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ebcabb4fabeab6498c59e4966eefe0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d956a0ca34af8441b82309e9b2493d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moduleManager: {fileID: 63319268}
-  panel: {fileID: 1202973638}
+  statusIndicator: {fileID: 1202973638}
 --- !u!1 &1233139517
 GameObject:
   m_ObjectHideFlags: 0
@@ -9458,6 +9554,7 @@ RectTransform:
   m_Children:
   - {fileID: 1302058633}
   - {fileID: 2134454625}
+  - {fileID: 1349193634}
   m_Father: {fileID: 303057248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -9605,6 +9702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moduleManager: {fileID: 63319268}
+  indicator: {fileID: 1349193633}
   liquid: Cooler
 --- !u!1 &1244147709
 GameObject:
@@ -10292,10 +10390,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 303057248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 781.9999, y: 285.35257}
-  m_SizeDelta: {x: -1663.9999, y: -670.70514}
+  m_AnchoredPosition: {x: -178.00012, y: -178.14743}
+  m_SizeDelta: {x: 256.00012, y: 256.29486}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1339972591
 MonoBehaviour:
@@ -10348,7 +10446,7 @@ GameObject:
   - component: {fileID: 1349193636}
   - component: {fileID: 1349193635}
   m_Layer: 5
-  m_Name: Cooler panel
+  m_Name: Cooler indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10361,18 +10459,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349193633}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 303057248}
+  m_Father: {fileID: 1236296980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 550, y: -50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -50, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1349193635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15831,6 +15929,7 @@ GameObject:
   - component: {fileID: 1650858097}
   - component: {fileID: 1650858096}
   - component: {fileID: 1650858098}
+  - component: {fileID: 1650858100}
   - component: {fileID: 1650858099}
   m_Layer: 6
   m_Name: Pump
@@ -15920,9 +16019,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enabled: 0
+  Steady: 0
   Modultxt: {fileID: 451844600}
   Panel: {fileID: 1224693611}
   moduleManager: {fileID: 63319268}
+  functionScript: {fileID: 1650858100}
   Particals: {fileID: 2051779011}
   player:
     serializedVersion: 2
@@ -15979,6 +16080,18 @@ PolygonCollider2D:
       - {x: 1.28, y: -1.28}
       - {x: 1.28, y: 0.02}
   m_UseDelaunayMesh: 0
+--- !u!114 &1650858100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650858094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36550f257ba1ce46999bf0f8b31f90b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1657123472
 GameObject:
   m_ObjectHideFlags: 0
@@ -21765,9 +21878,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enabled: 0
+  Steady: 0
   Modultxt: {fileID: 451844600}
   Panel: {fileID: 303057247}
   moduleManager: {fileID: 63319268}
+  functionScript: {fileID: 2053791906}
   Particals: {fileID: 1625981951}
   player:
     serializedVersion: 2

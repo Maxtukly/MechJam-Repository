@@ -5,6 +5,7 @@ using UnityEngine;
 public class FluidIterfaceScript : MonoBehaviour
 {
     public GameObject moduleManager;
+    public GameObject indicator;
     GameObject Engine;
     ModuleManager manager;
 
@@ -22,7 +23,11 @@ public class FluidIterfaceScript : MonoBehaviour
     void Update()
     {
         Engine = manager.CurrentModule();
-        if(filling)
+        if (Engine.GetComponent<EngineFunctions>().functions[liquid] > 50)
+        {
+            indicator.GetComponent<ColorChange>().ChangeColor(1);
+        }
+        if (filling)
         {
             Engine.GetComponent<EngineFunctions>().AddToValue(liquid, 5 * Time.deltaTime);
             Debug.Log(liquid + ":" + Engine.GetComponent<EngineFunctions>().functions[liquid]);

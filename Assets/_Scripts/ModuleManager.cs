@@ -8,6 +8,7 @@ public class ModuleManager : MonoBehaviour
     public GameObject currentModule;
     public Transform Player;
     public LayerMask Modules;
+    public Dictionary<string, float> moduleFunctions = new Dictionary<string, float>();
 
     private void Update()
     {
@@ -32,8 +33,12 @@ public class ModuleManager : MonoBehaviour
 
     public bool CheckValues()
     {
-        ModulInteraction module = currentModule.GetComponent<ModulInteraction>();
-        return module.Working;
+        if(currentModule != null)
+        {
+            ModulInteraction module = currentModule.GetComponent<ModulInteraction>();
+            return module.Working;
+        }
+        return false;
     }
 
     public GameObject CurrentModule()
@@ -41,5 +46,12 @@ public class ModuleManager : MonoBehaviour
         return currentModule;
     }
 
-
+    public void FunctionsChange(Dictionary<string, float> Functions)
+    {
+        moduleFunctions = Functions;
+    }
+    public Dictionary<string, float> FunctionsStatus()
+    {
+        return moduleFunctions;
+    }
 }

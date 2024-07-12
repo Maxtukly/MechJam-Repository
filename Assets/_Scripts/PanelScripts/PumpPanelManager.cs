@@ -2,29 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PanelManager : MonoBehaviour
+public class PumpPanelManager : MonoBehaviour
 {
     public GameObject moduleManager;
-    public GameObject panel;
+    public GameObject statusIndicator;
+    Dictionary<string, float> functionsStatus;
     ModuleManager manager;
-    ColorChange panelColors;
-
     private void Start()
     {
         manager = moduleManager.GetComponent<ModuleManager>();
-        panelColors = panel.GetComponent<ColorChange>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        functionsStatus = manager.FunctionsStatus();
+
         if (manager.CheckValues())
         {
-            panelColors.ChangeColor(1);
+            statusIndicator.GetComponent<ColorChange>().ChangeColor(1);
         }
         else
         {
-            panelColors.ChangeColor(0);
+            statusIndicator.GetComponent<ColorChange>().ChangeColor(0);
         }
     }
 }

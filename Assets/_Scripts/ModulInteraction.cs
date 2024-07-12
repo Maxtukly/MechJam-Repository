@@ -7,11 +7,12 @@ using static UnityEngine.ParticleSystem;
 public class ModulInteraction : MonoBehaviour
 {
     public bool Enabled;
+    public bool Steady;
     public Text Modultxt;
-    private Renderer ren;
     private ParticleSystem par;
     public GameObject Panel;
     public GameObject moduleManager;
+    public Component functionScript;
     public GameObject Particals;
     ModuleManager manager;
     public LayerMask player;
@@ -20,7 +21,7 @@ public class ModulInteraction : MonoBehaviour
     void Start()
     {
         Enabled = false;
-        ren = GetComponent<Renderer>();
+        Steady = false;
         par = Particals.GetComponent<ParticleSystem>();
         Working = false;
     }
@@ -67,7 +68,7 @@ public class ModulInteraction : MonoBehaviour
 
     public void Interaction()
     {
-        Debug.Log("Module active");
+        functionScript.SendMessage("ModuleStart");
         if (par != null)
         {
             par.Stop();
