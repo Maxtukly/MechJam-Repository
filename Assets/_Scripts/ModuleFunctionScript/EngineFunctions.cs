@@ -7,6 +7,8 @@ public class EngineFunctions : MonoBehaviour
 {
     public float cooler;
     public float oil;
+    public float radiator1;
+    public float radiator2;
 
 
     float maxCooler = 100;
@@ -25,6 +27,8 @@ public class EngineFunctions : MonoBehaviour
 
         functions.Add("Cooler", cooler);
         functions.Add("Oil", oil);
+        functions.Add("Radiator 1", radiator1);
+        functions.Add("Radiator 2", radiator2);
     }
 
     // Update is called once per frame
@@ -34,7 +38,7 @@ public class EngineFunctions : MonoBehaviour
         {
             mainModule.moduleManager.SendMessage("FunctionsChange", functions);
         }
-        if (functions["Cooler"] > maxCooler/2 && functions["Oil"] > maxOil/2)
+        if (functions["Cooler"] > maxCooler/2 && functions["Oil"] > maxOil/2 && functions["Radiator 1"] > 0 && functions["Radiator 2"] > 0)
         {
             mainModule.Steady = true;
         }
