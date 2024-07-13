@@ -5458,6 +5458,7 @@ GameObject:
   - component: {fileID: 198294049}
   - component: {fileID: 198294048}
   - component: {fileID: 198294047}
+  - component: {fileID: 198294050}
   m_Layer: 5
   m_Name: Indicator 1
   m_TagString: Untagged
@@ -5477,7 +5478,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1637918207}
+  m_Father: {fileID: 1368080257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5527,7 +5528,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 198294048}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1368080261}
+        m_TargetAssemblyTypeName: ElectronicsPanelManager, Assembly-CSharp
+        m_MethodName: IncreaseCharge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &198294048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5566,6 +5579,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198294045}
   m_CullTransparentMesh: 1
+--- !u!114 &198294050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198294045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a575a35c23cbfe45bb6c7335b5381a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.14050251, g: 0.8301887, b: 0, a: 1}
 --- !u!1 &254009539
 GameObject:
   m_ObjectHideFlags: 0
@@ -6042,9 +6070,9 @@ GameObject:
   m_Component:
   - component: {fileID: 320211967}
   - component: {fileID: 320211966}
-  - component: {fileID: 320211965}
-  - component: {fileID: 320211968}
   - component: {fileID: 320211969}
+  - component: {fileID: 320211970}
+  - component: {fileID: 320211965}
   m_Layer: 6
   m_Name: Electronics
   m_TagString: Untagged
@@ -6165,7 +6193,7 @@ Transform:
   - {fileID: 1363407033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &320211968
+--- !u!114 &320211969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6182,13 +6210,13 @@ MonoBehaviour:
   Modultxt: {fileID: 451844600}
   Panel: {fileID: 1368080256}
   moduleManager: {fileID: 63319268}
-  functionScript: {fileID: 320211969}
+  functionScript: {fileID: 320211970}
   Particals: {fileID: 1363407032}
   player:
     serializedVersion: 2
     m_Bits: 8
   Working: 0
---- !u!114 &320211969
+--- !u!114 &320211970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6200,7 +6228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf261b5578c0d584884fe129855cd684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Charge: 0
+  chargeAmount: 10
 --- !u!1 &325516924
 GameObject:
   m_ObjectHideFlags: 0
@@ -6548,6 +6576,7 @@ GameObject:
   - component: {fileID: 405764329}
   - component: {fileID: 405764328}
   - component: {fileID: 405764327}
+  - component: {fileID: 405764330}
   m_Layer: 5
   m_Name: Indicator 5
   m_TagString: Untagged
@@ -6567,7 +6596,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1637918207}
+  m_Father: {fileID: 1368080257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6617,7 +6646,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 405764328}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1368080261}
+        m_TargetAssemblyTypeName: ElectronicsPanelManager, Assembly-CSharp
+        m_MethodName: IncreaseCharge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &405764328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6656,6 +6697,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405764325}
   m_CullTransparentMesh: 1
+--- !u!114 &405764330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405764325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a575a35c23cbfe45bb6c7335b5381a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.14050251, g: 0.8301887, b: 0, a: 1}
 --- !u!1 &431765768
 GameObject:
   m_ObjectHideFlags: 0
@@ -6929,7 +6985,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1496151019}
+      - m_Target: {fileID: 1368080256}
         m_TargetAssemblyTypeName: ModuleManager, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -7858,6 +7914,7 @@ GameObject:
   - component: {fileID: 707785828}
   - component: {fileID: 707785827}
   - component: {fileID: 707785826}
+  - component: {fileID: 707785829}
   m_Layer: 5
   m_Name: Indicator 6
   m_TagString: Untagged
@@ -7877,7 +7934,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1637918207}
+  m_Father: {fileID: 1368080257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7927,7 +7984,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 707785827}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1368080261}
+        m_TargetAssemblyTypeName: ElectronicsPanelManager, Assembly-CSharp
+        m_MethodName: IncreaseCharge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &707785827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7966,6 +8035,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707785824}
   m_CullTransparentMesh: 1
+--- !u!114 &707785829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707785824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a575a35c23cbfe45bb6c7335b5381a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.14050251, g: 0.8301887, b: 0, a: 1}
 --- !u!1 &708761736
 GameObject:
   m_ObjectHideFlags: 0
@@ -8123,6 +8207,7 @@ GameObject:
   - component: {fileID: 709686075}
   - component: {fileID: 709686074}
   - component: {fileID: 709686073}
+  - component: {fileID: 709686076}
   m_Layer: 5
   m_Name: Indicator 8
   m_TagString: Untagged
@@ -8142,7 +8227,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1637918207}
+  m_Father: {fileID: 1368080257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8192,7 +8277,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 709686074}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1368080261}
+        m_TargetAssemblyTypeName: ElectronicsPanelManager, Assembly-CSharp
+        m_MethodName: IncreaseCharge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &709686074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8231,6 +8328,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709686071}
   m_CullTransparentMesh: 1
+--- !u!114 &709686076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709686071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a575a35c23cbfe45bb6c7335b5381a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.14050251, g: 0.8301887, b: 0, a: 1}
 --- !u!1 &743007001
 GameObject:
   m_ObjectHideFlags: 0
@@ -9827,6 +9939,7 @@ GameObject:
   - component: {fileID: 1023631515}
   - component: {fileID: 1023631514}
   - component: {fileID: 1023631513}
+  - component: {fileID: 1023631516}
   m_Layer: 5
   m_Name: Indicator 3
   m_TagString: Untagged
@@ -9846,7 +9959,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1637918207}
+  m_Father: {fileID: 1368080257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9896,7 +10009,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1023631514}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1368080261}
+        m_TargetAssemblyTypeName: ElectronicsPanelManager, Assembly-CSharp
+        m_MethodName: IncreaseCharge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1023631514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9935,6 +10060,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023631511}
   m_CullTransparentMesh: 1
+--- !u!114 &1023631516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023631511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a575a35c23cbfe45bb6c7335b5381a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.14050251, g: 0.8301887, b: 0, a: 1}
 --- !u!1 &1062408774
 GameObject:
   m_ObjectHideFlags: 0
@@ -9968,7 +10108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enabled: 0
-  Steady: 0
+  Steady: 1
   Modultxt: {fileID: 451844600}
   Panel: {fileID: 303057247}
   moduleManager: {fileID: 63319268}
@@ -16499,8 +16639,16 @@ RectTransform:
   m_Children:
   - {fileID: 502450150}
   - {fileID: 2141085394}
-  - {fileID: 1637918207}
+  - {fileID: 198294046}
+  - {fileID: 1750732708}
+  - {fileID: 1023631512}
+  - {fileID: 1429726621}
+  - {fileID: 405764326}
+  - {fileID: 707785825}
+  - {fileID: 1439150959}
+  - {fileID: 709686072}
   - {fileID: 1496151020}
+  - {fileID: 1943015721}
   - {fileID: 935754637}
   m_Father: {fileID: 1940547996}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16559,8 +16707,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d76275f550ea8c469c2088b54583c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moduleManager: {fileID: 63319268}
-  statusIndicator: {fileID: 935754636}
+  panel: {fileID: 1368080256}
+  batteryIndicator: {fileID: 1943015723}
+  chargeButtons:
+  - {fileID: 198294047}
+  - {fileID: 1750732709}
+  - {fileID: 1023631513}
+  - {fileID: 1429726622}
+  - {fileID: 709686073}
+  - {fileID: 1439150960}
+  - {fileID: 707785826}
+  - {fileID: 405764327}
+  resetButton: {fileID: 2141085395}
 --- !u!1 &1387812907
 GameObject:
   m_ObjectHideFlags: 0
@@ -16741,6 +16899,7 @@ GameObject:
   - component: {fileID: 1429726624}
   - component: {fileID: 1429726623}
   - component: {fileID: 1429726622}
+  - component: {fileID: 1429726625}
   m_Layer: 5
   m_Name: Indicator 4
   m_TagString: Untagged
@@ -16760,7 +16919,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1637918207}
+  m_Father: {fileID: 1368080257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16810,7 +16969,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1429726623}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1368080261}
+        m_TargetAssemblyTypeName: ElectronicsPanelManager, Assembly-CSharp
+        m_MethodName: IncreaseCharge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1429726623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16849,6 +17020,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429726620}
   m_CullTransparentMesh: 1
+--- !u!114 &1429726625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429726620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a575a35c23cbfe45bb6c7335b5381a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.14050251, g: 0.8301887, b: 0, a: 1}
 --- !u!1 &1439150958
 GameObject:
   m_ObjectHideFlags: 0
@@ -16861,6 +17047,7 @@ GameObject:
   - component: {fileID: 1439150962}
   - component: {fileID: 1439150961}
   - component: {fileID: 1439150960}
+  - component: {fileID: 1439150963}
   m_Layer: 5
   m_Name: Indicator 7
   m_TagString: Untagged
@@ -16880,7 +17067,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1637918207}
+  m_Father: {fileID: 1368080257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16930,7 +17117,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1439150961}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1368080261}
+        m_TargetAssemblyTypeName: ElectronicsPanelManager, Assembly-CSharp
+        m_MethodName: IncreaseCharge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1439150961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16969,6 +17168,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439150958}
   m_CullTransparentMesh: 1
+--- !u!114 &1439150963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439150958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a575a35c23cbfe45bb6c7335b5381a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.14050251, g: 0.8301887, b: 0, a: 1}
 --- !u!1 &1496151019
 GameObject:
   m_ObjectHideFlags: 0
@@ -16998,8 +17212,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 7.32, y: 7.32, z: 7.32}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1943015721}
+  m_Children: []
   m_Father: {fileID: 1368080257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -22139,49 +22352,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &1637918206
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1637918207}
-  m_Layer: 5
-  m_Name: Connections Panel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1637918207
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637918206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 198294046}
-  - {fileID: 1750732708}
-  - {fileID: 1023631512}
-  - {fileID: 1429726621}
-  - {fileID: 405764326}
-  - {fileID: 707785825}
-  - {fileID: 1439150959}
-  - {fileID: 709686072}
-  m_Father: {fileID: 1368080257}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1641253302
 GameObject:
   m_ObjectHideFlags: 0
@@ -22760,6 +22930,7 @@ GameObject:
   - component: {fileID: 1750732711}
   - component: {fileID: 1750732710}
   - component: {fileID: 1750732709}
+  - component: {fileID: 1750732712}
   m_Layer: 5
   m_Name: Indicator 2
   m_TagString: Untagged
@@ -22779,7 +22950,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1637918207}
+  m_Father: {fileID: 1368080257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22829,7 +23000,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1750732710}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1368080261}
+        m_TargetAssemblyTypeName: ElectronicsPanelManager, Assembly-CSharp
+        m_MethodName: IncreaseCharge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1750732710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22868,6 +23051,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750732707}
   m_CullTransparentMesh: 1
+--- !u!114 &1750732712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750732707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a575a35c23cbfe45bb6c7335b5381a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.14050251, g: 0.8301887, b: 0, a: 1}
 --- !u!1 &1910467266
 GameObject:
   m_ObjectHideFlags: 0
@@ -23134,16 +23332,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943015720}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7.3199997, y: 7.3199997, z: 7.3199997}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1496151020}
+  m_Father: {fileID: 1368080257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -628.10016, y: 16.4624}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943015722
@@ -29004,10 +29202,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943015722}
-        m_TargetAssemblyTypeName: ColorChange, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 3
+      - m_Target: {fileID: 1368080261}
+        m_TargetAssemblyTypeName: ElectronicsPanelManager, Assembly-CSharp
+        m_MethodName: ResetCharge
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

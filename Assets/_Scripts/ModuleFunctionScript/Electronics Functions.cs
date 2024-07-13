@@ -1,65 +1,36 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ElectronicsFunctions : MonoBehaviour
+public class ElectronicFunctions : MonoBehaviour
 {
-    public float Charge;
-    private const float maxCharge = 80;
+    public float chargeAmount = 10f; // Кількість заряду, що додається
+    private ElectronicsPanelManager panelManager;
 
-    public Dictionary<string, float> functions = new Dictionary<string, float>();
-    ModulInteraction mainModule;
-
-    void Start()
+    private void Start()
     {
-        mainModule = GetComponent<ModulInteraction>();
-        Charge = 0;
-
-        functions.Add("Charge", 0); // Initialize charge to 0
-    }
-
-    void Update()
-    {
-        if (mainModule.Enabled)
+        panelManager = FindObjectOfType<ElectronicsPanelManager>();
+        if (panelManager != null)
         {
-            mainModule.moduleManager.SendMessage("FunctionsChange", functions);
-        }
-
-        if (functions["Charge"] >= maxCharge)
-        {
-            mainModule.Steady = true;
-        }
-        else
-        {
-            mainModule.Steady = false;
-        }
-    }
-
-    public void AddToValue(string key, float value)
-    {
-        if (functions.ContainsKey(key))
-        {
-            functions[key] += value;
-            if (functions[key] > maxCharge)
+            Button button = GetComponent<Button>();
+            if (button != null)
             {
-                functions[key] = maxCharge;
+                button.onClick.AddListener(OnClick);
+            }
+            else
+            {
+                Debug.LogError("Button component missing from the GameObject.");
             }
         }
-        else
-        {
-            Debug.LogWarning($"Key {key} not found in functions dictionary.");
-        }
     }
 
-    public void ModuleStart()
+    // Метод для додавання заряду
+    private void OnClick()
     {
-        if (mainModule.Steady)
+        if (panelManager != null)
         {
-            mainModule.Working = true;
+            panelManager.ChargeBattery(chargeAmount);
         }
-    }
-
-    public void ModuleStop()
-    {
-        mainModule.Working = false;
     }
 }

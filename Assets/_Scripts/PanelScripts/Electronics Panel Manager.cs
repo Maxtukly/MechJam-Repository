@@ -1,33 +1,90 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ElectronicsPanelManager : MonoBehaviour
 {
-    public GameObject moduleManager;
-    public GameObject statusIndicator;
+    public GameObject panel; // Панель, яку потрібно відображати/сховувати
+    public Image batteryIndicator; // Індикатор батареї
+    public Button[] chargeButtons; // Масив кнопок для зарядки
+    public Button resetButton; // Кнопка для скидання заряду
 
-    private ModuleManager manager;
+    private float batteryCharge = 0f; // Заряд батареї
+    private const float maxBatteryCharge = 80f; // Максимальний заряд батареї
 
-    void Start()
+    private void Start()
     {
-        manager = moduleManager.GetComponent<ModuleManager>();
-    }
-
-    void Update()
-    {
-        Dictionary<string, float> functionsStatus = manager.FunctionsStatus();
-        if (functionsStatus.ContainsKey("Charge") && functionsStatus["Charge"] == 80)
+        // Встановлюємо початкові стани кнопок
+        foreach (Button button in chargeButtons)
         {
-            statusIndicator.GetComponent<ColorChange>().ChangeColor(1); // Change to green or appropriate color at index 1
+            button.onClick.AddListener(() => ChargeBattery(10f));
+        }
+        resetButton.onClick.AddListener(ResetBattery);
+
+        // Make sure panel is initially inactive
+        if (panel != null)
+        {
+            panel.SetActive(false);
         }
         else
         {
-            statusIndicator.GetComponent<ColorChange>().ChangeColor(0); // Change to red or appropriate color at index 0
+            Debug.LogWarning("Panel GameObject is not assigned in the Inspector.");
         }
     }
 
-    public void IncreaseCharge()
+    private void Update()
     {
-        manager.GetComponent<ElectronicsFunctions>().AddToValue("Charge", 10);
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (panel != null)
+            {
+                panel.SetActive(!panel.activeSelf);
+            }
+            else
+            {
+                Debug.LogWarning("Panel GameObject is not assigned in the Inspector.");
+            }
+        }
+
+        UpdatePanelStatus();
+    }
+
+    // Метод для заряджання батареї
+    public void ChargeBattery(float amount)
+    {
+        batteryCharge += amount;
+        if (batteryCharge > maxBatteryCharge)
+        {
+            batteryCharge = maxBatteryCharge; // Максимум 80
+        }
+    }
+
+    // Метод для скидання батареї
+    private void ResetBattery()
+    {
+        batteryCharge = 0f;
+    }
+
+    // Метод для оновлення стану панелі
+    private void UpdatePanelStatus()
+    {
+        // Оновлюємо кольори індикатора батареї і кнопок
+        if (batteryCharge >= maxBatteryCharge)
+        {
+            batteryIndicator.color = Color.cyan; // Синій при максимальному заряді
+            foreach (Button button in chargeButtons)
+            {
+                button.GetComponent<Image>().color = Color.green; // Зелені кнопки при максимальному заряді
+            }
+        }
+        else
+        {
+            batteryIndicator.color = Color.red; // Червоний при недостатньому заряді
+            foreach (Button button in chargeButtons)
+            {
+                button.GetComponent<Image>().color = Color.red; // Білий колір кнопок
+            }
+        }
     }
 }
