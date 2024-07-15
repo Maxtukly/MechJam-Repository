@@ -39,4 +39,9 @@ public class FanPanelManager : MonoBehaviour
             Fan.GetComponent<Image>().sprite = fanSprite;
         }
     }
+
+    public void RepairFan()
+    {
+        
+    }
 }
