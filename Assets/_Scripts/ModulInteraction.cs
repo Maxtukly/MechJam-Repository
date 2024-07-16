@@ -23,7 +23,7 @@ public class ModulInteraction : MonoBehaviour
         Enabled = false;
         Steady = false;
         par = Particals.GetComponent<ParticleSystem>();
-        Working = false;
+        Working = true;
     }
 
     void Update()
@@ -45,9 +45,13 @@ public class ModulInteraction : MonoBehaviour
             Panel.active = !Panel.active;
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (par != null && Working)
         {
-            Debug.Log(Working.ToString());
+            par.Stop();
+        }
+        if(par != null && !Working)
+        {
+            par.Play();
         }
     }
 
@@ -69,11 +73,11 @@ public class ModulInteraction : MonoBehaviour
     public void Interaction()
     {
         functionScript.SendMessage("ModuleStart");
-        if (par != null)
-        {
-            par.Stop();
-            Debug.Log("Particals stoped");
-        }
         Invoke("EnergyCount", 3.0f);
+    }
+
+    public void GoBoom()
+    {
+        functionScript.SendMessage("BreakSomething");
     }
 }

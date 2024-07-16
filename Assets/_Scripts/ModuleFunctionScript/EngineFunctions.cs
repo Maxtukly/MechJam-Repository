@@ -10,25 +10,26 @@ public class EngineFunctions : MonoBehaviour
     public float radiator1;
     public float radiator2;
 
-
-    float maxCooler = 100;
-    float maxOil = 100;
-
     public Dictionary<string, float> functions = new Dictionary<string, float>();
-
+    public Dictionary<string, float> maxfunctions = new Dictionary<string, float>();
     ModulInteraction mainModule;
 
     // Start is called before the first frame update
     void Start()
     {
         mainModule = GetComponent<ModulInteraction>();
-        cooler = Random.Range(0, maxCooler/2);
-        oil = Random.Range(0, maxOil/2);
+        cooler = 100;
+        oil = 100;
 
         functions.Add("Cooler", cooler);
         functions.Add("Oil", oil);
         functions.Add("Radiator 1", radiator1);
         functions.Add("Radiator 2", radiator2);
+
+        maxfunctions.Add("Cooler", 100);
+        maxfunctions.Add("Oil", 100);
+        maxfunctions.Add("Radiator 1", 1);
+        maxfunctions.Add("Radiator 2", 1);
     }
 
     // Update is called once per frame
@@ -38,10 +39,11 @@ public class EngineFunctions : MonoBehaviour
         {
             mainModule.moduleManager.SendMessage("FunctionsChange", functions);
         }
-        if (functions["Cooler"] > maxCooler/2 && functions["Oil"] > maxOil/2 && functions["Radiator 1"] > 0 && functions["Radiator 2"] > 0)
+        if (functions["Cooler"] > 50 && functions["Oil"] > 50 && functions["Radiator 1"] > 0 && functions["Radiator 2"] > 0)
         {
             mainModule.Steady = true;
         }
+
     }
 
     public void AddToValue(string Key, float plus)
@@ -62,4 +64,19 @@ public class EngineFunctions : MonoBehaviour
         mainModule.Working = false;
     }
 
+    void BreakSomething()
+    {
+        string[] keys = new string[functions.Keys.Count];
+        functions.Keys.CopyTo(keys, 0);
+        string key = keys[Random.Range(0, keys.Length - 1)];
+        if (functions[key] > 0)
+        {
+            AddToValue(key, -Random.Range(1, maxfunctions[key]));
+        }
+        else
+        {
+            functions[key] = 0;
+        }
+        ModuleStop();
+    }
 }

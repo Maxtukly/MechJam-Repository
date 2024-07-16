@@ -14841,9 +14841,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fightTime: 300
-  casualtiesTime: 0
-  mechHealth: 0
+  casualtiesTime: 300
+  mechHealth: 100
   timerText: {fileID: 1617478807}
+  modules: []
 --- !u!4 &1381803574
 Transform:
   m_ObjectHideFlags: 0

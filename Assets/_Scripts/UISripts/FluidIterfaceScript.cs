@@ -29,7 +29,14 @@ public class FluidIterfaceScript : MonoBehaviour
         }
         if (filling)
         {
-            Engine.GetComponent<EngineFunctions>().AddToValue(liquid, 5 * Time.deltaTime);
+            if(Engine.GetComponent<EngineFunctions>().functions[liquid] < Engine.GetComponent<EngineFunctions>().maxfunctions[liquid])
+            {
+                Engine.GetComponent<EngineFunctions>().AddToValue(liquid, 5 * Time.deltaTime);
+            }
+            else
+            {
+                Engine.GetComponent<EngineFunctions>().functions[liquid] = Engine.GetComponent<EngineFunctions>().maxfunctions[liquid];
+            }
             Debug.Log(liquid + ":" + Engine.GetComponent<EngineFunctions>().functions[liquid]);
         }
     }
