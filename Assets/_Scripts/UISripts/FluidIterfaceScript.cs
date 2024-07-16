@@ -31,7 +31,10 @@ public class FluidIterfaceScript : MonoBehaviour
         {
             if(Engine.GetComponent<EngineFunctions>().functions[liquid] < Engine.GetComponent<EngineFunctions>().maxfunctions[liquid])
             {
-                Engine.GetComponent<EngineFunctions>().AddToValue(liquid, 5 * Time.deltaTime);
+                if(manager.instrument() == "Hose")
+                {
+                    Engine.GetComponent<EngineFunctions>().AddToValue(liquid, 20 * Time.deltaTime);
+                }              
             }
             else
             {

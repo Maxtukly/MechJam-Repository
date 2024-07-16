@@ -23,8 +23,8 @@ public class EngineFunctions : MonoBehaviour
 
         functions.Add("Cooler", cooler);
         functions.Add("Oil", oil);
-        functions.Add("Radiator 1", radiator1);
-        functions.Add("Radiator 2", radiator2);
+        functions.Add("Radiator 1", 1);
+        functions.Add("Radiator 2", 1);
 
         maxfunctions.Add("Cooler", 100);
         maxfunctions.Add("Oil", 100);
@@ -42,6 +42,10 @@ public class EngineFunctions : MonoBehaviour
         if (functions["Cooler"] > 50 && functions["Oil"] > 50 && functions["Radiator 1"] > 0 && functions["Radiator 2"] > 0)
         {
             mainModule.Steady = true;
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log(functions["Radiator 1"]);
         }
 
     }
@@ -72,11 +76,13 @@ public class EngineFunctions : MonoBehaviour
         if (functions[key] > 0)
         {
             AddToValue(key, -Random.Range(1, maxfunctions[key]));
+            Debug.Log(key);
+            if(functions[key] < 0)
+            {
+                functions[key] = 0;
+            }
         }
-        else
-        {
-            functions[key] = 0;
-        }
+        mainModule.Steady = false;
         ModuleStop();
     }
 }

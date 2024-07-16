@@ -6,7 +6,9 @@ using UnityEngine;
 public class ModuleManager : MonoBehaviour
 {
     public GameObject currentModule;
+    public GameObject Panels;
     public Transform Player;
+    public GameObject player;
     public LayerMask Modules;
     public Dictionary<string, float> moduleFunctions = new Dictionary<string, float>();
 
@@ -15,10 +17,16 @@ public class ModuleManager : MonoBehaviour
         if(!Physics2D.OverlapCircle(Player.position, 2, Modules))
         {
             currentModule = null;
+            Panels.active = false;
+        }
+        else
+        {
+            Panels.active = true;
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
             Debug.Log("Current module" + currentModule.name);
+            currentModule.GetComponent<ModulInteraction>().Particals.GetComponent<ParticleSystem>().Play();
         }
     }
 
@@ -53,5 +61,10 @@ public class ModuleManager : MonoBehaviour
     public Dictionary<string, float> FunctionsStatus()
     {
         return moduleFunctions;
+    }
+
+    public string instrument()
+    {
+        return player.GetComponent<PlayerManager>().CurrentInstrument;
     }
 }

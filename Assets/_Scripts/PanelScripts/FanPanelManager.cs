@@ -11,6 +11,7 @@ public class FanPanelManager : MonoBehaviour
     public GameObject moduleManager;
 
     public GameObject Fan;
+    public PlayerManager player;
     public Sprite fanSprite;
     public Sprite brokenfanSprite;
 
@@ -20,28 +21,45 @@ public class FanPanelManager : MonoBehaviour
     private void Start()
     {
         manager = moduleManager.GetComponent<ModuleManager>();
+        player = GameObject.Find("Player").GetComponent<PlayerManager>();
     }
 
     private void Update()
     {
         functionsStatus = manager.FunctionsStatus();
-        CheckFan();
+
+        if (functionsStatus["Radiator 1"] < 0)
+        {
+            Fan.GetComponent<FanScript>().Broken = true;
+        }
+        if (functionsStatus["Radiator 1"] > 0)
+        {
+            Fan.GetComponent<FanScript>().Broken = false;
+        }
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            Debug.Log(Fan.GetComponent<FanScript>().Broken);
+        }
     }
 
     void CheckFan()
     {
-        if (functionsStatus["Radiator " + Number.ToString()] < 0)
+        if (functionsStatus["Radiator 1"] < 0)
         {
-            Fan.GetComponent<Image>().sprite = brokenfanSprite;
+            Fan.GetComponent<FanScript>().Broken = true;
         }
-        if (functionsStatus["Radiator " + Number.ToString()] > 0)
+        if (functionsStatus["Radiator 1"] > 0)
         {
-            Fan.GetComponent<Image>().sprite = fanSprite;
+            Fan.GetComponent<FanScript>().Broken = false;
         }
     }
 
     public void RepairFan()
     {
-        
+        if(player.CurrentInstrument == "Screwdriver")
+        {
+            functionsStatus["Radiator 1"] = 1;
+            Fan.GetComponent<FanScript>().Broken = false;
+        }
     }
 }

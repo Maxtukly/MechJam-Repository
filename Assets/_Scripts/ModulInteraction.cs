@@ -20,6 +20,7 @@ public class ModulInteraction : MonoBehaviour
 
     void Start()
     {
+        moduleManager = GameObject.Find("Module Manager");
         Enabled = false;
         Steady = false;
         par = Particals.GetComponent<ParticleSystem>();
@@ -49,7 +50,7 @@ public class ModulInteraction : MonoBehaviour
         {
             par.Stop();
         }
-        if(par != null && !Working)
+        else
         {
             par.Play();
         }

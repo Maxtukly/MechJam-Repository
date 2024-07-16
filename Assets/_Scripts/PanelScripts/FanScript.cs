@@ -13,7 +13,7 @@ public class FanScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Broken = false;
     }
 
     // Update is called once per frame
@@ -27,10 +27,5 @@ public class FanScript : MonoBehaviour
         {
             GetComponent<Image>().sprite = fanSprite;
         }
-    }
-
-    void Repair()
-    {
-        Broken = false;
     }
 }
