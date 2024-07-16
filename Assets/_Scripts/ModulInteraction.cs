@@ -45,9 +45,13 @@ public class ModulInteraction : MonoBehaviour
             Panel.active = !Panel.active;
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Working)
         {
-            Debug.Log(Working.ToString());
+            par.Stop();
+        }
+        if (!Working)
+        {
+            par.Play();
         }
     }
 
@@ -69,11 +73,6 @@ public class ModulInteraction : MonoBehaviour
     public void Interaction()
     {
         functionScript.SendMessage("ModuleStart");
-        if (par != null)
-        {
-            par.Stop();
-            Debug.Log("Particals stoped");
-        }
         Invoke("EnergyCount", 3.0f);
     }
 }
