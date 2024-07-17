@@ -8,7 +8,6 @@ public class EngineFunctions : MonoBehaviour
     public float cooler;
     public float oil;
     public float radiator1;
-    public float radiator2;
 
     public string Type;
     bool listed;
@@ -91,7 +90,7 @@ public class EngineFunctions : MonoBehaviour
     {
         string[] keys = new string[functions.Keys.Count];
         functions.Keys.CopyTo(keys, 0);
-        string key = keys[Random.Range(0, keys.Length - 1)];
+        string key = keys[Random.Range(0, keys.Length)];
         if (functions[key] > 0)
         {
             AddToValue(key, -Random.Range(1, maxfunctions[key]));

@@ -20,7 +20,7 @@ public class ModulInteraction : MonoBehaviour
 
     void Start()
     {
-        moduleManager = GameObject.Find("Module Manager");
+        manager = GameObject.Find("Module Manager").GetComponent<ModuleManager>();
         Enabled = false;
         Steady = false;
         par = Particals.GetComponent<ParticleSystem>();
@@ -33,7 +33,6 @@ public class ModulInteraction : MonoBehaviour
         {
             Enabled = true;
             Modultxt.text = "Press the \"R\" Button for repair";
-            manager = moduleManager.GetComponent<ModuleManager>();
             manager.currentModule = gameObject;
         }
         else

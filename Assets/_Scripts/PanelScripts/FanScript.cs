@@ -21,11 +21,11 @@ public class FanScript : MonoBehaviour
     {
         if (Broken)
         {
-            GetComponent<Image>().sprite = brokenfanSprite;
+            GetComponent<Image>().overrideSprite = brokenfanSprite;
         }
         if (!Broken)
         {
-            GetComponent<Image>().sprite = fanSprite;
+            GetComponent<Image>().overrideSprite = fanSprite;
         }
     }
 }
