@@ -11,6 +11,9 @@ public class CoordinatesChanger : MonoBehaviour
     public GameObject Exit2;
     public GameObject Exit3;
     public GameObject Exit4;
+    public GameObject Exit5;
+    public GameObject Exit6;
+    public GameObject Exit7;
 
     //    private bool IsInArea = false; 
 
@@ -54,5 +57,17 @@ public class CoordinatesChanger : MonoBehaviour
     public void Floor4()
     {
         Player.transform.position = Exit4.transform.position;
+    }
+    public void Floor5()
+    {
+        Player.transform.position= Exit5.transform.position;
+    }
+    public void Floor6()
+    {
+        Player.transform.position = Exit6.transform.position;
+    }
+    public void Floor7()
+    {
+        Player.transform.position = Exit7.transform.position;
     }
 }
