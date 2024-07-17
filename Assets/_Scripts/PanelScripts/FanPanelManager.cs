@@ -43,18 +43,6 @@ public class FanPanelManager : MonoBehaviour
         manager.FunctionsChange(functionsStatus);
     }
 
-    void CheckFan()
-    {
-        if (functionsStatus["Radiator 1"] < 0)
-        {
-            Fan.GetComponent<FanScript>().Broken = true;
-        }
-        if (functionsStatus["Radiator 1"] > 0)
-        {
-            Fan.GetComponent<FanScript>().Broken = false;
-        }
-    }
-
     public void RepairFan()
     {
         if(player.CurrentInstrument == "Screwdriver")
