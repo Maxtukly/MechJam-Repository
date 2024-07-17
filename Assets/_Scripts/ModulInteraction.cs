@@ -49,6 +49,7 @@ public class ModulInteraction : MonoBehaviour
         if (par != null && Working)
         {
             par.Stop();
+            par.Clear();
         }
         else
         {
@@ -80,5 +81,6 @@ public class ModulInteraction : MonoBehaviour
     public void GoBoom()
     {
         functionScript.SendMessage("BreakSomething");
+        par.Play();
     }
 }

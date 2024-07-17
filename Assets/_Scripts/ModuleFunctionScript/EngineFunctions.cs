@@ -10,26 +10,33 @@ public class EngineFunctions : MonoBehaviour
     public float radiator1;
     public float radiator2;
 
+    public string Type;
+    bool listed;
+
     public Dictionary<string, float> functions = new Dictionary<string, float>();
     public Dictionary<string, float> maxfunctions = new Dictionary<string, float>();
     ModulInteraction mainModule;
+    FightManager fightManager;
 
     // Start is called before the first frame update
     void Start()
     {
         mainModule = GetComponent<ModulInteraction>();
+        fightManager = GameObject.Find("FightManager").GetComponent<FightManager>();
+        Type = "Motors";
+        listed = false;
+
         cooler = 100;
         oil = 100;
 
         functions.Add("Cooler", cooler);
         functions.Add("Oil", oil);
         functions.Add("Radiator 1", 1);
-        functions.Add("Radiator 2", 1);
 
         maxfunctions.Add("Cooler", 100);
         maxfunctions.Add("Oil", 100);
         maxfunctions.Add("Radiator 1", 1);
-        maxfunctions.Add("Radiator 2", 1);
+
     }
 
     // Update is called once per frame
@@ -39,7 +46,15 @@ public class EngineFunctions : MonoBehaviour
         {
             mainModule.moduleManager.SendMessage("FunctionsChange", functions);
         }
-        if (functions["Cooler"] > 50 && functions["Oil"] > 50 && functions["Radiator 1"] > 0 && functions["Radiator 2"] > 0)
+        if(mainModule.Working && !listed)
+        {
+            fightManager.RepairModule(Type);
+            listed = true;
+        }
+
+        functions["Cooler"] += fightManager.mechModules["Pumps"] * Time.deltaTime;
+
+        if (functions["Cooler"] > 50 && functions["Oil"] > 50 && functions["Radiator 1"] > 0)
         {
             mainModule.Steady = true;
         }
@@ -60,12 +75,16 @@ public class EngineFunctions : MonoBehaviour
         if(mainModule.Steady)
         {
             mainModule.Working = true;
+            fightManager.RepairModule(Type);
+            listed = true;
         }
     }
 
     public void ModuleStop()
     {
         mainModule.Working = false;
+        fightManager.BreakModule(Type);
+        listed = false;
     }
 
     void BreakSomething()

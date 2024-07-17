@@ -11,6 +11,8 @@ public class FightManager : MonoBehaviour
     [SerializeField] float fightTime;
     [SerializeField] float casualtiesTime;
     [SerializeField] float mechHealth;
+    [SerializeField] GameObject wonPanel;
+    [SerializeField] GameObject losePanel;
     float casualtiesTimer;
     [SerializeField] TextMeshProUGUI timerText;
     public List<GameObject> modules = new List<GameObject>();
@@ -18,6 +20,7 @@ public class FightManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         casualtiesTimer = casualtiesTime;
         mechModules.Add("Motors", 0);
         mechModules.Add("Pumps", 0);
@@ -29,6 +32,11 @@ public class FightManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (mechHealth <= 0)
+        {
+            losePanel.active = true;
+            Time.timeScale = 0;
+        }    
         if(fightTime > 0)
         {
 
@@ -36,7 +44,7 @@ public class FightManager : MonoBehaviour
 
             if(casualtiesTimer > 0)
             {
-                casualtiesTimer -= Time.deltaTime + Random.Range(-0.5f, 2);
+                casualtiesTimer -= Time.deltaTime;
             }
             if(casualtiesTimer < 0)
             {
@@ -44,9 +52,11 @@ public class FightManager : MonoBehaviour
                 BreakDown();
             }
         }
-        if(fightTime < 0)
+        if(fightTime <= 0)
         {
             fightTime = 0;
+            wonPanel.active = true;
+            Time.timeScale = 0;
         }
 
         int minutes = Mathf.FloorToInt(fightTime / 60);
@@ -58,11 +68,23 @@ public class FightManager : MonoBehaviour
 
     void BreakDown()
     {
-        int damage = Random.Range(1, 4);
+        int damage = Random.Range(1, 3);
+        int mechdamage = Random.Range(10, 20);
+        mechHealth -= mechdamage - mechModules["Motors"];
         for (int i = 0; i < damage; i++)
         {
             int module = Random.Range(0, modules.Count - 1);
             modules[module].GetComponent<ModulInteraction>().GoBoom();
         }
+    }
+
+    public void RepairModule(string type)
+    {
+        mechModules[type] += 1;
+    }
+
+    public void BreakModule(string type)
+    {
+        mechModules[type] -= 1;
     }
 }

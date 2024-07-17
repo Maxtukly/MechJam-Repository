@@ -19,9 +19,13 @@ public class ModuleManager : MonoBehaviour
             currentModule = null;
             Panels.active = false;
         }
+
         else
         {
-            Panels.active = true;
+            if(currentModule != null)
+            {
+                Panels.active = true;
+            }
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
