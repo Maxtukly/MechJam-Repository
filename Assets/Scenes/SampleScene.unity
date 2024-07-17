@@ -43089,7 +43089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fightTime: 300
   casualtiesTime: 20
-  mechHealth: 10
+  mechHealth: 100
   wonPanel: {fileID: 1376535763}
   losePanel: {fileID: 889307003}
   timerText: {fileID: 1617478807}
@@ -50187,6 +50187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 
+<<<<<<< Updated upstream
 --- !u!1001 &1651075331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50256,6 +50257,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28f651109ce2fd44498bf93618b32745, type: 3}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1657123472
 GameObject:
   m_ObjectHideFlags: 0
@@ -50689,6 +50692,7 @@ PrefabInstance:
       propertyPath: moduleManager
       value: 
       objectReference: {fileID: 63319268}
+<<<<<<< Updated upstream
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50793,6 +50797,8 @@ PrefabInstance:
       propertyPath: moduleManager
       value: 
       objectReference: {fileID: 63319268}
+=======
+>>>>>>> Stashed changes
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

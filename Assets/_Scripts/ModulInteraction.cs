@@ -21,6 +21,7 @@ public class ModulInteraction : MonoBehaviour
     void Start()
     {
         manager = GameObject.Find("Module Manager").GetComponent<ModuleManager>();
+        moduleManager = GameObject.Find("Module Manager");
         Enabled = false;
         Steady = false;
         par = Particals.GetComponent<ParticleSystem>();
