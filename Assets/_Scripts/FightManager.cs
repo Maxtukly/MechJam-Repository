@@ -35,7 +35,7 @@ public class FightManager : MonoBehaviour
         if (mechHealth <= 0)
         {
             losePanel.active = true;
-            Time.timeScale = 0;
+            Time.timeScale = 0f;
         }    
         if(fightTime > 0)
         {
@@ -56,7 +56,7 @@ public class FightManager : MonoBehaviour
         {
             fightTime = 0;
             wonPanel.active = true;
-            Time.timeScale = 0;
+            Time.timeScale = 0f;
         }
 
         int minutes = Mathf.FloorToInt(fightTime / 60);
