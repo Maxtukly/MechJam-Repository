@@ -59,6 +59,11 @@ public class FightManager : MonoBehaviour
             Time.timeScale = 0f;
         }
 
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log("Motors:"+mechModules["Motors"]+"Pumps:" + mechModules["Pumps"]+ "Electronics:" + mechModules["Electronics"]);
+        }
+
         int minutes = Mathf.FloorToInt(fightTime / 60);
         int seconds = Mathf.FloorToInt(fightTime % 60);
 

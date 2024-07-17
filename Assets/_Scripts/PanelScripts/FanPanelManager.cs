@@ -15,7 +15,7 @@ public class FanPanelManager : MonoBehaviour
     public Sprite fanSprite;
     public Sprite brokenfanSprite;
 
-    Dictionary<string, float> functionsStatus;
+    Dictionary<string, float> functionsStatus = new Dictionary<string, float>();
     ModuleManager manager;
 
     private void Start()
@@ -28,7 +28,7 @@ public class FanPanelManager : MonoBehaviour
     {
         functionsStatus = manager.FunctionsStatus();
 
-        if (functionsStatus["Radiator 1"] < 0)
+        if (functionsStatus["Radiator 1"] <= 0)
         {
             Fan.GetComponent<FanScript>().Broken = true;
         }
@@ -40,6 +40,7 @@ public class FanPanelManager : MonoBehaviour
         {
             Debug.Log(Fan.GetComponent<FanScript>().Broken);
         }
+        manager.FunctionsChange(functionsStatus);
     }
 
     void CheckFan()
