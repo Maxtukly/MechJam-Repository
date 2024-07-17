@@ -53,6 +53,7 @@ public class ModulInteraction : MonoBehaviour
         else
         {
             par.Play();
+            par.enableEmission = true;
         }
     }
 
@@ -80,7 +81,7 @@ public class ModulInteraction : MonoBehaviour
     public void GoBoom()
     {
         functionScript.SendMessage("BreakSomething");
-        par.Clear();
         par.Play();
+        par.enableEmission = true;
     }
 }
