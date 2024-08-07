@@ -37,6 +37,7 @@ public class InstrumentsUI : MonoBehaviour
         else
         {
             animator.SetBool("Visible", false);
+            pmanager.CurrentInstrument = null;
         }
     }
 

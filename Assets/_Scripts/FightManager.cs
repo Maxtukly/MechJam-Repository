@@ -15,6 +15,7 @@ public class FightManager : MonoBehaviour
     [SerializeField] GameObject losePanel;
     float casualtiesTimer;
     [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] TextMeshProUGUI statusText;
     public List<GameObject> modules = new List<GameObject>();
     public Dictionary<string, int> mechModules = new Dictionary<string, int>();
     // Start is called before the first frame update
@@ -68,13 +69,14 @@ public class FightManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(fightTime % 60);
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        statusText.text = "Motors:" + mechModules["Motors"] + "\n" + "Pumps:" + mechModules["Pumps"] + "\n" + "Electronics:" + mechModules["Electronics"];
 
     }
 
     void BreakDown()
     {
         int damage = Random.Range(1, 3);
-        int mechdamage = Random.Range(10, 20);
+        int mechdamage = Random.Range(20, 25);
         mechHealth -= mechdamage - mechModules["Motors"];
         for (int i = 0; i < damage; i++)
         {
